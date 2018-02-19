@@ -25,7 +25,7 @@ class Scraper
     student_hash = {}
     #hash to include twitter, linkedin, github, blog, profile_quote, and bio
     #include defaults just in case profile doesn't contain one
-    doc.css(".social-icon-container a").each do |profiles|
+    doc.css("div.social-icon-container a").each do |profiles|
       if profiles.attr('href').include?("twitter")
         student_hash[:twitter] = profiles.attr('href')
       elsif profiles.attr('href').include?("linkedin")
