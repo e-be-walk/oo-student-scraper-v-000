@@ -15,9 +15,9 @@ class Scraper
         location = student.css('.student-location').text,
         url = student.attr('href')
         students << {name: name, location: location, profile_url: url}
-      binding.pry
     end
   end
+  binding.pry
 end
   #method takes argument of URL using nokogiri and open-uri, return hash
   def self.scrape_profile_page(profile_url)
