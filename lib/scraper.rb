@@ -21,7 +21,7 @@ class Scraper
 end
   #method takes argument of URL using nokogiri and open-uri, return hash
   def self.scrape_profile_page(profile_url)
-    #doc = Nokogiri::HTML(open(index_url))
+    doc = Nokogiri::HTML(open(index_url))
     #hash to include twitter, linkedin, github, blog, profile_quote, and bio
     #include defaults just in case profile doesn't contain one
 
