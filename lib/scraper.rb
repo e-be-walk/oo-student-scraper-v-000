@@ -25,7 +25,19 @@ end
     student_hash = {}
     #hash to include twitter, linkedin, github, blog, profile_quote, and bio
     #include defaults just in case profile doesn't contain one
-
+    doc.css(".social-icon-container a").each do |profiles|
+      if profiles.attr('href').include?("twitter")
+        student_hash[:twitter] = profiles.attr('href')
+      elsif profiles.attr('href').include?("linkedin")
+        student_hash[:linkedin] = profiles.attr('href')
+      elsif profiles.attr('href').include?("github")
+        student_hash[:github] = profiles.attr('href')
+      elsif profiles.attr('href').include?("blog")
+        student_hash[:blog] = profiles.attr('href')
+      end
+    end
+    student_hash[:profile_quote] = doc.css(".profile-quote").text
+    student_hash[:bio] = doc.css(".description-holder p").text
+    student_hash
   end
-
 end
