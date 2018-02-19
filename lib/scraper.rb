@@ -17,7 +17,7 @@ class Scraper
         students << {name: name, location: location, profile_url: url}
     end
   end
-  binding.pry
+  #binding.pry
 end
   #method takes argument of URL using nokogiri and open-uri, return hash
   def self.scrape_profile_page(profile_url)
