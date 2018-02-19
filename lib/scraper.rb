@@ -18,6 +18,7 @@ class Scraper
         :url => student.attr('href')
       }
       student_index_array << student
+      binding.pry
     end
     #binding.pry
     student_index_array
