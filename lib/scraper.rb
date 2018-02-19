@@ -6,22 +6,17 @@ class Scraper
   #method takes argument of URL using nokogiri and open-uri, return hash
   def self.scrape_index_page(index_url)
     doc = Nokogiri::HTML(open(index_url))
-    student_index_array = []
-    student = {}
+    students = []
 
     #hash to include name, location, and profile_url
     doc.css("div.roster-cards-container").each do |profile|
       profile.css('.student-card a').each do |student|
-        student = {
-        :name => student.css('.student-name').text,
-        :location => student.css('.student-location').text,
-        :url => student.attr('href')
-      }
-      student_index_array << student
+        name = student.css('.student-name').text,
+        location = student.css('.student-location').text,
+        url = student.attr('href')
+        students << {name: name, location: location, profile_url: url}
       binding.pry
     end
-    #binding.pry
-    student_index_array
   end
 end
   #method takes argument of URL using nokogiri and open-uri, return hash
