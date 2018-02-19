@@ -9,16 +9,16 @@ class Scraper
     students = []
 
     #hash to include name, location, and profile_url
-    doc.css("div.roster-cards-container").each do |profile|
-      profile.css('.student-card a').each do |student|
-        name = student.css('.student-name').text
-        location = student.css('.student-location').text
-        url = student.attr('href')
-        students << {name: name, location: location, profile_url: url}
+      doc.css("div.student-card").each do |student|
+      student_cards = {}
+        student_cards[:name] = student.css('.student-name').text
+        student_cards[:location] = student.css('.student-location').text
+        student_cards[:profile_url] = student.attr('href')
+        students << student_cards
     end
+    students
   end
-  #binding.pry
-end
+
   #method takes argument of URL using nokogiri and open-uri, return hash
   def self.scrape_profile_page(profile_url)
     doc = Nokogiri::HTML(open(profile_url))
