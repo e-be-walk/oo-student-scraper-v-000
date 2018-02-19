@@ -11,8 +11,8 @@ class Scraper
     #hash to include name, location, and profile_url
     doc.css("div.roster-cards-container").each do |profile|
       profile.css('.student-card a').each do |student|
-        name = student.css('.student-name').text,
-        location = student.css('.student-location').text,
+        name = student.css('.student-name').text
+        location = student.css('.student-location').text
         url = student.attr('href')
         students << {name: name, location: location, profile_url: url}
     end
