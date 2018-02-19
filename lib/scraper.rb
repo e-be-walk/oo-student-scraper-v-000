@@ -35,7 +35,6 @@ class Scraper
       elsif profiles.attr('href').include?("blog")
         student_hash[:blog] = profiles.attr('href')
       end
-    end
     student_hash[:profile_quote] = doc.css(".profile-quote").text
     student_hash[:bio] = doc.css(".description-holder p").text
   end
