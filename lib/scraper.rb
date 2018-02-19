@@ -32,7 +32,7 @@ class Scraper
         student_hash[:linkedin] = profiles.attr('href')
       elsif profiles.attr('href').include?("github")
         student_hash[:github] = profiles.attr('href')
-      elsif profiles.attr('href').include?("blog")
+      elsif profiles.attr('href').include?(".com")
         student_hash[:blog] = profiles.attr('href')
       end
     student_hash[:profile_quote] = doc.css(".profile-quote").text
